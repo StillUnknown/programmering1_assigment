@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel='stylesheet' href='css/style.css'>
+    <link rel='stylesheet' href='css/dropdownmenustyle.css'>
+</head>
+<body>
+
+<header>
+    <section class="header">
+        <img src="img/logo.PNG" class="logo" alt="logo">
+    </section>
+    <section class="header"><label for="Håkan Hellström">Search album: </label><input type="text" id="Håkan Hellström" value="Håkan Hellström">
+    </section>
+    <section class="header">
+        <a href="#" target="">
+            <img src="img/shoppingcart.PNG" alt="Shoppingcart image" class="logo"></a>
+        <div id='dropdown'>
+            <button class='shoppingcart-dropdown-button'
+                    onclick='openShoppingList()'>
+                Shopping List
+            </button>
+
+            <div id="shoppingcart-dropdown" class='shoppingcart-dropdown-content'>
+
+                <section class='shoppingcart-grid-container'>
+                    <p class='shoppingcart-grid-item1 shoppingcart-area-top-left'>
+                        CD-COVER
+                    </p>
+                    <p class='shoppingcart-grid-item1 shoppingcart-area-top-right'>
+                        INTEGER - +
+                    </p>
+                    <p class='shoppingcart-grid-item1 shoppingcart-area-bottom-left'>
+                        PRICE
+                    </p>
+                    <button class="shoppingcart-area-bottom-right" onclick="removeButton()">Remove</button>
+                </section>
+
+                <section>
+                    <p class="price-left-to-free-shipping">Price left to free shipping: <span id="left-to-free-shipping"></span> kr</p>
+                    <p class="total-price-of-shoppingcart">
+                        TOTAL PRICE</p>
+                    <p><button onclick="purchaseAlert()">Purchase</button></p>
+                    <p><button onclick='closeShoppingList()'>Close</button></p>
+
+                </section>
+            </div>
+        </div>
+    </section>
+</header>
+
+<nav>
+    <ul id="navbar">
+        <li class="navbar-item">Våra album</li>
+        <li class="navbar-item">Nyheter</li>
+        <li class="navbar-item">Erbjudanden</li>
+        <li class="navbar-item">Topplistan</li>
+        <li class="navbar-item">Julklappar</li>
+        <li class="navbar-item">Kontakt</li>
+    </ul>
+</nav>
+
+<main>
+    <div id="grid-container">
+        <div id="empty-div-left-side">SKA VARA TOM</div>
+        <div id="div-middle-of-the-screen">
+            <div>
+                <section>
+                    <h1>Welcome to StillUknowns shop</h1>
+                    <h3>Here you can find seven different Hardstyle CD's and a special one only for Lars</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias beatae commodi debitis doloremque
+                        doloribus earum eligendi error, est eum ex expedita facere facilis hic illum, ipsum, itaque
+                        labore
+                        maiores nam natus neque odio quas repellendus voluptatibus? Architecto consequatur distinctio
+                        doloremque doloribus eveniet laborum molestiae, necessitatibus nostrum optio quae quod, quos
+                        sequi
+                        sunt suscipit temporibus vero, voluptas. A atque, blanditiis corporis cumque, debitis dolore
+                        dolorem
+                        doloribus eum fuga harum inventore laborum magni minus nulla odio possimus praesentium quaerat
+                        quibusdam quidem, rem reprehenderit repudiandae sunt unde ut voluptates? At consequuntur eum
+                        facilis
+                        maxime repellendus, sit sunt suscipit? Enim est laborum quia voluptate!</p>
+                </section>
+            </div>
+            <hr>
+            <div class="album-grid-container">
+                <section class="album-one">
+                    <img src="img/hardstyle-one.PNG" alt="Hardstyle cd cover" class="img">
+                    <p>Blandade artister - Hardstyle 2017</p>
+                    <p>CD</p>
+                    <p>Price: <span id="hardstyleOnePrice"></span> kr</p>
+                    <button onclick="hardstyleOneBuyButton()">BUY</button>
+                </section>
+                <section class="album-two">
+                    <img src="img/hardstyle-two.PNG" alt="Hardstyle cd cover" class="img">
+                    <p>Blandade artister - Hardstyle 2018</p>
+                    <p>CD</p>
+                    <p>Price: <span id="hardstyleTwoPrice"></span> kr</p>
+                    <button onclick="hardstyleTwoBuyButton()">BUY</button>
+                </section>
+                <section class="album-three">
+                    <img src="img/hardstyle-three.PNG" alt="Hardstyle cd cover" class="img">
+                    <p>Blandade artister - World Of Hardstyle</p>
+                    <p>CD</p>
+                    <p>Price: <span id="hardstyleThreePrice"></span> kr</p>
+                    <button>BUY</button>
+                </section>
+                <section class="album-four">
+                    <img src="img/hardstyle-four.PNG" alt="Hardstyle cd cover" class="img">
+                    <p>Blandade artister - Ultimate Hardstyle</p>
+                    <p>CD</p>
+                    <p>Price: <span id="hardstyleFourPrice"></span> kr</p>
+                    <button>BUY</button>
+                </section>
+
+                <section class="album-five">
+                    <img src="img/hardstyle-five.PNG" alt="Hardstyle cd cover" class="img">
+                    <p>Blandade artister - Hardstyle 2020</p>
+                    <p>CD</p>
+                    <p>Price: <span id="hardstyleFivePrice"></span> kr</p>
+                    <button>BUY</button>
+                </section>
+                <section class="album-six">
+                    <img src="img/hardstyle-six.PNG" alt="Hardstyle cd cover" class="img">
+                    <p>Blandade artister - Hardstyle 2021</p>
+                    <p>CD</p>
+                    <p>Price: <span id="hardstyleSixPrice"></span> kr</p>
+                    <button>BUY</button>
+                </section>
+                <section class="album-seven">
+                    <img src="img/hardstyle-seven.PNG" alt="Hardstyle cd cover" class="img">
+                    <p>Blandade artister - Hardstyle 2022</p>
+                    <p>CD</p>
+                    <p>Price: <span id="hardstyleSevenPrice"></span> kr</p>
+                    <button>BUY</button>
+                </section>
+                <section class="album-eight">
+                    <img src="img/HåkanHellström.PNG" alt="Håkan Hellström cd cover" class="img">
+                    <p>Håkan Hellström - Illusioner</p>
+                    <p>CD</p>
+                    <p>Price: <span id="hellstromPrice"></span> kr</p>
+                    <button onclick="justForLaugh()">BUY</button>
+                </section>
+            </div>
+        </div>
+        <div id="empty-div-right-side">SKA VARA TOM</div>
+    </div>
+
+
+    <footer>
+        <article class="footer-item">
+            <p>Copyright © 2021 by <img src="https://img.shields.io/badge/Still-Unknown-red" alt="">
+            </p>
+        </article>
+        <article class="footer-item">
+            <a href='https://sv-se.facebook.com/' target='_blank'>
+                <img src='https://img.shields.io/badge/facebook-1F2833?&style=for-the-badge&logo=facebook'
+                     alt='facebook'>
+            </a>
+        </article>
+
+        <article class="footer-item">
+            <a href='https://www.instagram.com/' target='_blank'>
+                <img src='https://img.shields.io/badge/instagram-1F2833?&style=for-the-badge&logo=instagram'
+                     alt='instagram'>
+            </a>
+        </article>
+        <article class="footer-item">
+            <a href='https://www.twitter.com/' target='_blank'>
+                <img src='https://img.shields.io/badge/twitter-1F2833?&style=for-the-badge&logo=twitter' alt='twitter'>
+            </a>
+        </article>
+    </footer>
+</main>
+
+<script src="js/script.js"></script>
+</body>
+</html>

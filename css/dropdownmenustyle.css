@@ -1,0 +1,86 @@
+.shoppingcart-dropdown-button {
+    padding: 1em;
+    font-size: 1em;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.shoppingcart-dropdown-button:hover {
+    background-color: aqua;
+}
+
+#dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.shoppingcart-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: lightskyblue;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.shoppingcart-dropdown-content a {
+    color: black;
+    padding: 0.75em 1em;
+    text-decoration: none;
+    display: block;
+}
+
+#dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+.shoppingcart-area-top-left {
+    grid-area: top;
+}
+
+.shoppingcart-area-top-right {
+    grid-area: bottom;
+}
+
+.shoppingcart-area-bottom-left {
+    grid-area: side;
+}
+
+.shoppingcart-area-bottom-right {
+    grid-area: remove;
+}
+
+.shoppingcart-grid-container {
+    display: grid;
+    grid-template-areas:
+            'top . bottom'
+            'side . remove';
+    grid-gap: 0.5em;
+    background-color: #2196F3;
+    padding: 0.5em;
+    border: 1px solid black;
+}
+
+.shoppingcart-grid-item1 {
+    background-color: aquamarine;
+    border: 1px solid black;
+    padding: 1em;
+    text-align: center;
+}
+
+.price-left-to-free-shipping {
+    background-color: #2196F3;
+    padding: 0.5em;
+    border: 1px solid black;
+}
+
+.total-price-of-shoppingcart {
+    background-color: #2196F3;
+    padding: 0.5em;
+    border: 1px solid black;
+}
