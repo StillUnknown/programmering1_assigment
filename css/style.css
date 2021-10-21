@@ -104,3 +104,11 @@ footer {
     width: 100%;
     margin: auto 0;
 }
+
+#empty-div-left-side {
+    background-color: white;
+}
+
+#empty-div-right-side {
+    background-color: white;
+}

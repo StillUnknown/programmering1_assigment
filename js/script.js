@@ -10,43 +10,43 @@ function closeShoppingList() {
 
 const hardstyleOneCdPrice = 229
 function priceOfHardstyleOne() {
-    document.getElementById('hardstyleOnePrice').innerText = hardstyleOneCdPrice
+    document.getElementById('hardstyle-one-price').innerText = hardstyleOneCdPrice
 }
 priceOfHardstyleOne()
 
 const hardstyleTwoCdPrice = 259
 function priceOfHardstyleTwo() {
-    document.getElementById('hardstyleTwoPrice').innerText = hardstyleTwoCdPrice
+    document.getElementById('hardstyle-two-price').innerText = hardstyleTwoCdPrice
 }
 priceOfHardstyleTwo()
 
 const hardstyleThreeCdPrice = 119
 function priceOfHardstyleThree() {
-    document.getElementById('hardstyleThreePrice').innerText = hardstyleThreeCdPrice
+    document.getElementById('hardstyle-three-price').innerText = hardstyleThreeCdPrice
 }
 priceOfHardstyleThree()
 
 const hardstyleFourCdPrice = 239
 function priceOfHardstyleFour() {
-    document.getElementById('hardstyleFourPrice').innerText = hardstyleFourCdPrice
+    document.getElementById('hardstyle-four-price').innerText = hardstyleFourCdPrice
 }
 priceOfHardstyleFour()
 
 const hardstyleFiveCdPrice = 239
 function priceOfHardstyleFive() {
-    document.getElementById('hardstyleFivePrice').innerText = hardstyleFiveCdPrice
+    document.getElementById('hardstyle-five-price').innerText = hardstyleFiveCdPrice
 }
 priceOfHardstyleFive()
 
 const hardstyleSixCdPrice = 259
 function priceOfHardstyleSix() {
-    document.getElementById('hardstyleSixPrice').innerText = hardstyleSixCdPrice
+    document.getElementById('hardstyle-six-price').innerText = hardstyleSixCdPrice
 }
 priceOfHardstyleSix()
 
-const hardstyleSevenCdPrice = 259
+const hardstyleSevenCdPrice = 249
 function priceOfHardstyleSeven() {
-    document.getElementById('hardstyleSevenPrice').innerText = hardstyleSevenCdPrice
+    document.getElementById('hardstyle-seven-price').innerText = hardstyleSevenCdPrice
 }
 priceOfHardstyleSeven()
 
@@ -75,29 +75,36 @@ function purchaseAlert() {
 }
 
 function hardstyleOneBuyButton() {
-    document.getElementById('shoppingcart-dropdown').innerText = hardstyleOneCdPrice
+    document.getElementById('shoppingcart-grid-container').innerText =
+        document.getElementById('hardstyle-one-cover') + '   ' + hardstyleOneCdPrice + ' kr'
 }
 
 function hardstyleTwoBuyButton() {
-    document.getElementById('shoppingcart-dropdown').innerText = hardstyleTwoCdPrice
+    document.getElementById('shoppingcart-grid-container').innerText =
+        document.getElementById('hardstyle-two-cover') + '   ' + hardstyleTwoCdPrice + ' kr'
 }
 
 function hardstyleThreeBuyButton() {
-    document.getElementById('shoppingcart-dropdown').innerText = hardstyleThreeCdPrice
+    document.getElementById('shoppingcart-grid-container').innerText =
+        document.getElementById('hardstyle-three-cover') + '   ' + hardstyleThreeCdPrice + ' kr'
 }
 
 function hardstyleFourBuyButton() {
-    document.getElementById('shoppingcart-dropdown').innerText = hardstyleFourCdPrice
+    document.getElementById('shoppingcart-grid-container').innerText =
+        document.getElementById('hardstyle-four-cover') + '   ' + hardstyleFourCdPrice + ' kr'
 }
 
 function hardstyleFiveBuyButton() {
-    document.getElementById('shoppingcart-dropdown').innerText = hardstyleFiveCdPrice
+    document.getElementById('shoppingcart-grid-container').innerText =
+        document.getElementById('hardstyle-five-cover') + '   ' + hardstyleFiveCdPrice + ' kr'
 }
 
 function hardstyleSixBuyButton() {
-    document.getElementById('shoppingcart-dropdown').innerText = hardstyleSixCdPrice
+    document.getElementById('shoppingcart-grid-container').innerText =
+        document.getElementById('hardstyle-six-cover') + '   ' + hardstyleSixCdPrice + ' kr'
 }
 
 function hardstyleSevenBuyButton() {
-    document.getElementById('shoppingcart-dropdown').innerText = hardstyleSevenCdPrice
+    document.getElementById('shoppingcart-grid-container').innerText =
+        document.getElementById('hardstyle-seven-cover') + '   ' + hardstyleSevenCdPrice + ' kr'
 }

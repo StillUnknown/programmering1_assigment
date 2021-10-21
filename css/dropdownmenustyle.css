@@ -39,27 +39,27 @@
     display: block;
 }
 
-.shoppingcart-area-top-left {
-    grid-area: top;
+.shoppingcart-area-top-left-cdcover {
+    grid-area: cover;
 }
 
-.shoppingcart-area-top-right {
-    grid-area: bottom;
+.shoppingcart-area-top-right-integer {
+    grid-area: integer;
 }
 
-.shoppingcart-area-bottom-left {
-    grid-area: side;
+.shoppingcart-area-bottom-left-price-of-cd {
+    grid-area: price;
 }
 
-.shoppingcart-area-bottom-right {
+.remove-items-in-shoppingcart-button {
     grid-area: remove;
 }
 
-.shoppingcart-grid-container {
+#shoppingcart-grid-container {
     display: grid;
     grid-template-areas:
-            'top . bottom'
-            'side . remove';
+            'cover . integer'
+            'price . remove';
     grid-gap: 0.5em;
     background-color: #2196F3;
     padding: 0.5em;
