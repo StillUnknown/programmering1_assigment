@@ -13,11 +13,12 @@
     <section class="header">
         <img src="img/logo.PNG" class="logo" alt="logo">
     </section>
-    <section class="header"><label for="Håkan Hellström">Search album: </label><input type="text" id="Håkan Hellström" value="Håkan Hellström">
+    <section class="header"><label for="Håkan Hellström">Search album: </label><input type="text" id="Håkan Hellström"
+                                                                                      value="Håkan Hellström">
     </section>
     <section class="header">
         <a href="#" target="">
-            <img src="img/shoppingcart.PNG" alt="Shoppingcart image" class="logo"></a>
+            <img src="img/shoppingcart.PNG" alt="Shoppingcart image" class="logo" id="hoverDropdown"></a>
         <div id='dropdown'>
             <button class='shoppingcart-dropdown-button'
                     onclick='openShoppingList()'>
@@ -40,11 +41,16 @@
                 </section>
 
                 <section>
-                    <p class="price-left-to-free-shipping">Price left to free shipping: <span id="left-to-free-shipping"></span> kr</p>
+                    <p class="price-left-to-free-shipping">Price left to free shipping: <span
+                            id="left-to-free-shipping"></span> kr</p>
                     <p class="total-price-of-shoppingcart">
                         TOTAL PRICE</p>
-                    <p><button onclick="purchaseAlert()">Purchase</button></p>
-                    <p><button onclick='closeShoppingList()'>Close</button></p>
+                    <p>
+                        <button onclick="purchaseAlert()">Purchase</button>
+                    </p>
+                    <p>
+                        <button onclick='closeShoppingList()'>Close</button>
+                    </p>
 
                 </section>
             </div>
@@ -113,7 +119,7 @@
                     <p>Blandade artister - Ultimate Hardstyle</p>
                     <p>CD</p>
                     <p>Price: <span id="hardstyleFourPrice"></span> kr</p>
-                    <button>BUY</button>
+                    <button onclick="hardstyleFourBuyButton()">BUY</button>
                 </section>
 
                 <section class="album-five">
@@ -121,21 +127,21 @@
                     <p>Blandade artister - Hardstyle 2020</p>
                     <p>CD</p>
                     <p>Price: <span id="hardstyleFivePrice"></span> kr</p>
-                    <button>BUY</button>
+                    <button onclick="hardstyleFiveBuyButton()">BUY</button>
                 </section>
                 <section class="album-six">
                     <img src="img/hardstyle-six.PNG" alt="Hardstyle cd cover" class="img">
                     <p>Blandade artister - Hardstyle 2021</p>
                     <p>CD</p>
                     <p>Price: <span id="hardstyleSixPrice"></span> kr</p>
-                    <button>BUY</button>
+                    <button onclick="hardstyleSixBuyButton()">BUY</button>
                 </section>
                 <section class="album-seven">
                     <img src="img/hardstyle-seven.PNG" alt="Hardstyle cd cover" class="img">
                     <p>Blandade artister - Hardstyle 2022</p>
                     <p>CD</p>
                     <p>Price: <span id="hardstyleSevenPrice"></span> kr</p>
-                    <button>BUY</button>
+                    <button onclick="hardstyleSevenBuyButton()">BUY</button>
                 </section>
                 <section class="album-eight">
                     <img src="img/HåkanHellström.PNG" alt="Håkan Hellström cd cover" class="img">

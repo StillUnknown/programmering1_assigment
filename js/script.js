@@ -85,3 +85,19 @@ function hardstyleTwoBuyButton() {
 function hardstyleThreeBuyButton() {
     document.getElementById('shoppingcart-dropdown').innerText = hardstyleThreeCdPrice
 }
+
+function hardstyleFourBuyButton() {
+    document.getElementById('shoppingcart-dropdown').innerText = hardstyleFourCdPrice
+}
+
+function hardstyleFiveBuyButton() {
+    document.getElementById('shoppingcart-dropdown').innerText = hardstyleFiveCdPrice
+}
+
+function hardstyleSixBuyButton() {
+    document.getElementById('shoppingcart-dropdown').innerText = hardstyleSixCdPrice
+}
+
+function hardstyleSevenBuyButton() {
+    document.getElementById('shoppingcart-dropdown').innerText = hardstyleSevenCdPrice
+}
