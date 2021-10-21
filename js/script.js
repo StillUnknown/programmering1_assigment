@@ -83,5 +83,5 @@ function hardstyleTwoBuyButton() {
 }
 
 function hardstyleThreeBuyButton() {
-    
+    document.getElementById('shoppingcart-dropdown').innerText = hardstyleThreeCdPrice
 }
