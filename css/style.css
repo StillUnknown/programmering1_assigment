@@ -15,7 +15,6 @@ header {
 }
 
 
-
 .header {
     border: 1px solid black;
     text-align: center;
@@ -57,32 +56,31 @@ li {
 #grid-container {
     height: 90vh;
     display: grid;
-    grid-template-areas:
-    'empty-div-left-side middle-of-the-screen empty-div-right-side';
+    grid-template-columns: 1fr 4fr 1fr;
     text-align: center;
     background-color: lightskyblue;
+
 }
 
 #grid-container > div {
     border: 1px solid black;
 }
 
-.album-grid-container {
+#album-grid-container {
     display: grid;
-    grid-template-areas:
-    'album-one album-two album-three album-four'
-    'album-five album-six album-seven album-eight';
-    padding: 1em;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 2em;
+    padding-left: 12em;
 }
 
-.album-grid-container > section {
+#album-grid-container > section {
     padding-top: 2em;
 }
 
 button {
     width: 10em;
     padding: 1em;
-    max-height: 45.66px;
+    max-height: 46px;
 }
 
 button:hover {
@@ -111,4 +109,18 @@ footer {
 
 #empty-div-right-side {
     background-color: white;
+}
+
+.price-of-shipping {
+    background-color: #2196F3;
+    padding: 0.5em;
+    border: 1px solid black;
+}
+
+.show-hardstyle-seven-in-shoppingcart {
+    display: none;
+}
+
+.img-in-shoppingcart {
+    width: 5px;
 }
