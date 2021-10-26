@@ -57,22 +57,188 @@ let albums = [
     },
 ]
 
-function renderSingleAlbum(albums) {
+function renderSingleAlbum(album) {
     return `
     <article id=albumToBy>
-        <img src=${albums.image} alt=${albums} class="img" id=${albums}>
-            <p>${albums.name}</p>
-            <p>Pris: ${albums.price}:-</p>
-            <button id="${ albums.id }">Buy</button>
+        <img src=${album.image} alt=${album} class="img" id=${album}>
+            <p>Title: ${album.name}</p>
+            <p>Price: ${album.price}:-</p>
+            <button id="${album.id}">Buy</button>
     </article> `
         ;
 }
+console.log(albums)
+let myCart = [];
 
-
-let renderAllAlbums = [];
-
-for (let i = 0; i < albums.length; i++) {
-    renderAllAlbums.push(renderSingleAlbum(albums[i]))
+function updateElementIdHtml(elementId, html) {
+    document.getElementById(elementId).innerHTML = html
 }
 
-document.getElementById('album-grid-container').innerHTML = renderAllAlbums;
+function updateContent() {
+    let htmlElement = ''
+
+    for (const album of albums) {
+        console.log(album)
+        htmlElement += renderSingleAlbum(album)
+    }
+
+    updateElementIdHtml('album-grid-container', htmlElement)
+}
+
+updateContent()
+
+function itemAlreadyInCart(id) {
+    return (albums[0].id === id)
+}
+
+function updateQuantity() {
+    myCart[0].quantity += 1
+}
+
+
+function insertItemToCart(album) {
+    myCart.push({
+        Title: album.name,
+        Type: album.type,
+        Price: album.price,
+        quantity: 1
+    });
+}
+
+function something(album) {
+    if (myCart.length === 0) {
+        insertItemToCart(album);
+    } else {
+        if (itemAlreadyInCart(album)) {
+            updateQuantity(album);
+        } else {
+            insertItemToCart(album);
+        }
+    }
+    console.log(myCart)
+}
+window.addEventListener('load', function () {
+    document.getElementById(albums[0].id)
+        .addEventListener('click', function () {
+            something(albums[0])
+        });
+
+    document.getElementById(albums[1].id)
+        .addEventListener('click', function () {
+            const id = albums[1].id
+
+            if (myCart.length === 0) {
+                insertItemToCart(id);
+            } else {
+                if (itemAlreadyInCart(id)) {
+                    updateQuantity(id);
+                } else {
+                    insertItemToCart(id);
+                }
+            }
+
+            console.log(myCart)
+        });
+
+    document.getElementById(albums[2].id)
+        .addEventListener('click', function () {
+            const id = albums[2].id
+
+            if (myCart.length === 0) {
+                insertItemToCart(id);
+            } else {
+                if (itemAlreadyInCart(id)) {
+                    updateQuantity(id);
+                } else {
+                    insertItemToCart(id);
+                }
+            }
+
+            console.log(myCart)
+        });
+
+    document.getElementById(albums[3].id)
+        .addEventListener('click', function () {
+            const id = albums[3].id
+
+            if (myCart.length === 0) {
+                insertItemToCart(id);
+            } else {
+                if (itemAlreadyInCart(id)) {
+                    updateQuantity(id);
+                } else {
+                    insertItemToCart(id);
+                }
+            }
+
+            console.log(myCart)
+        });
+
+    document.getElementById(albums[4].id)
+        .addEventListener('click', function () {
+            const id = albums[4].id
+
+            if (myCart.length === 0) {
+                insertItemToCart(id);
+            } else {
+                if (itemAlreadyInCart(id)) {
+                    updateQuantity(id);
+                } else {
+                    insertItemToCart(id);
+                }
+            }
+
+            console.log(myCart)
+        });
+
+    document.getElementById(albums[5].id)
+        .addEventListener('click', function () {
+            const id = albums[5].id
+
+            if (myCart.length === 0) {
+                insertItemToCart(id);
+            } else {
+                if (itemAlreadyInCart(id)) {
+                    updateQuantity(id);
+                } else {
+                    insertItemToCart(id);
+                }
+            }
+
+            console.log(myCart)
+        });
+
+    document.getElementById(albums[6].id)
+        .addEventListener('click', function () {
+            const id = albums[6].id
+
+            if (myCart.length === 0) {
+                insertItemToCart(id);
+            } else {
+                if (itemAlreadyInCart(id)) {
+                    updateQuantity(id);
+                } else {
+                    insertItemToCart(id);
+                }
+            }
+
+            console.log(myCart)
+        });
+
+    document.getElementById(albums[7].id)
+        .addEventListener('click', function () {
+            const id = albums[7].id
+
+            if (myCart.length === 0) {
+                insertItemToCart(id);
+            } else {
+                if (itemAlreadyInCart(id)) {
+                    updateQuantity(id);
+                } else {
+                    insertItemToCart(id);
+                }
+            }
+
+            console.log(myCart)
+        });
+})
