@@ -25,3 +25,7 @@ leftForFreeShipping()
 function purchaseAlert() {
     alert('Your face was successfully scanned and your purchase will be credited!')
 }
+
+function searchButton() {
+    alert('This function does not work!')
+}

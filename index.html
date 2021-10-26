@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Album Shopping Cart</title>
     <link rel='stylesheet' href='css/style.css'>
     <link rel='stylesheet' href='css/dropdownmenustyle.css'>
 </head>
@@ -14,7 +14,9 @@
         <img src="img/logo.PNG" class="logo" alt="logo">
     </section>
     <section class="header"><label for="Håkan Hellström">Search album: </label><input type="text" id="Håkan Hellström"
-                                                                                      value="Håkan Hellström"></section>
+                                                                                      value="Håkan Hellström">
+        <button onclick="searchButton()">Search</button></section>
+
     <section class="header">
         <a href="#" target="">
             <img src="img/shoppingcart.PNG" alt="Shoppingcart image" class="logo" id="hoverDropdown"></a>
@@ -22,12 +24,11 @@
             <button class='shoppingcart-dropdown-button' onclick='openShoppingList()'>Cart</button>
             <div id="shoppingcart-dropdown" class='shoppingcart-dropdown-content'>
                 <section id='shoppingcart-grid-container'>
-                    <button onclick="removeButton()">Remove</button>
                 </section>
                 <section>
                     <p class="price-left-to-free-shipping">Price left to free shipping: <span
                             id="left-to-free-shipping"></span> $</p>
-                    <p class="total-price-of-shoppingcart">
+                    <p id="total-price-of-shoppingcart">
                         TOTAL PRICE</p>
                     <p>
                         <button onclick="purchaseAlert()">Purchase</button>
