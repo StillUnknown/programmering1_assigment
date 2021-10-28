@@ -10,8 +10,10 @@ class AlbumsToCart {
 }
 
 let myCartItems = []
+let totalSumInCart = 0
+let quantityInCart = 0
 
-function buyButton(image, name, price, id) {
+function updateQuantity(image, name, price, id) {
     let alreadyInCart = false;
     for (const album of myCartItems) {
         if (album.id == id) {
@@ -20,10 +22,16 @@ function buyButton(image, name, price, id) {
             alreadyInCart = true;
         }
     }
-    if (alreadyInCart == false) {
-        let addAlbumToCart = new AlbumsToCart(image, name, price, id)
-        myCartItems.push(addAlbumToCart)
+    return alreadyInCart
+}
+
+function pushCardToCart(image, name, price, id) {
+    let cardInCart = updateQuantity(id);
+    if (cardInCart === false) {
+        let newCard = new AlbumsToCart(image, name, price, id)
+        myCartItems.push(newCard)
     }
+    renderCart()
 }
 
 function showAlbumInCart(album) {
@@ -32,7 +40,7 @@ function showAlbumInCart(album) {
             <img src=${album.image} alt=${album.name} class="img-in-cart" id=${album.id}>
             <p>${album.name}</p>
             <p>Price: ${album.price} SEK</p>
-            <input id="quantity${album.id}" type="number" onclick="addOrSubtract('${album.id}')" value="${album.quantity}" />
+            <input id="quantity${album.id}" type="number" onclick="addOrSubtractQuantity('${album.id}')" value="${album.quantity}" />
             <p id="totalSum${album.id}">Total: ${album.totalSum} SEK</p>
             </article> `;
 }
@@ -52,7 +60,7 @@ function closeCart() {
         .classList.remove('show')
 }
 
-function addOrSubtract(id) {
+function addOrSubtractQuantity(id) {
     let newQuantity = document.getElementById("quantity" + id).value;
     for (const album of myCartItems) {
         if (album.id == id) {

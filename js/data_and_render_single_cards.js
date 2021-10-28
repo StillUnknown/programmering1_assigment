@@ -64,7 +64,7 @@ function renderSingleAlbum(album) {
         <img src=${album.image} alt=${album} class="img" id=${album}>
             <p>${album.name}</p>
             <p>${album.price} SEK</p>
-            <button onclick="buyButton('${album.image}', '${album.name}', '${album.price}', '${album.id}')">Buy</button>
+            <button onclick="pushCardToCart('${album.image}', '${album.name}', '${album.price}', '${album.id}')">Buy</button>
     </article> `
 }
 
