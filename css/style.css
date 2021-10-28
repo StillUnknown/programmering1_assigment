@@ -21,8 +21,8 @@ header {
 }
 
 .img {
-    width: 222px;
-    height: 182px;
+    width: 150px;
+    height: 150px;
 }
 
 .logo {
@@ -68,7 +68,7 @@ li {
 
 #album-grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     padding: 2em;
     grid-gap: 2em;
 }
@@ -78,8 +78,7 @@ li {
 }
 
 button {
-    width: 10em;
-    padding: 1em;
+    width: 5em;
     max-height: 46px;
 }
 
@@ -119,8 +118,4 @@ footer {
 
 .show-hardstyle-seven-in-shoppingcart {
     display: none;
-}
-
-.img-in-shoppingcart {
-    width: 5px;
 }

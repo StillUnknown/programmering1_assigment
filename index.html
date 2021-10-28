@@ -15,28 +15,22 @@
     </section>
     <section class="header"><label for="Håkan Hellström">Search album: </label><input type="text" id="Håkan Hellström"
                                                                                       value="Håkan Hellström">
-        <button onclick="searchButton()">Search</button></section>
+        <button onclick="searchButton()">Search</button>
+    </section>
 
     <section class="header">
-        <a href="#" target="">
-            <img src="img/shoppingcart.PNG" alt="Shoppingcart image" class="logo" id="hoverDropdown"></a>
-        <div id='dropdown'>
-            <button class='shoppingcart-dropdown-button' onclick='openShoppingList()'>Cart</button>
-            <div id="shoppingcart-dropdown" class='shoppingcart-dropdown-content'>
-                <section id='shoppingcart-grid-container'>
-                </section>
-                <section>
-                    <p class="price-left-to-free-shipping">Price left to free shipping: <span
-                            id="left-to-free-shipping"></span> $</p>
-                    <p id="total-price-of-shoppingcart">
-                        TOTAL PRICE</p>
-                    <p>
-                        <button onclick="purchaseAlert()">Purchase</button>
-                    </p>
-                    <p>
-                        <button onclick='closeShoppingList()'>Close</button>
-                    </p>
-                </section>
+        <img src="img/shoppingcart.PNG" alt="Shoppingcart image" class="logo" id="hoverDropdown">
+        <div class='dropdown'>
+            <button class='dropdown-button'
+                    onclick='openCart()'>Cart
+            </button>
+            <div id='cart-dropdown' class='dropdown-content'>
+                <div id="cart-dropdown-container">
+
+                </div>
+                <button onclick='closeCart()'>
+                    Close
+                </button>
             </div>
         </div>
     </section>
@@ -64,11 +58,11 @@
     </footer>
 </main>
 
+<script src="js/data_and_render_single_cards.js"></script>
+<script src="js/albums_in_array.js"></script>
+<script src="js/cart_content.js"></script>
 <script src="js/script.js"></script>
 <script src="js/navbar.js"></script>
 <script src="js/footer.js"></script>
-<script src="js/albums_in_array.js"></script>
-<script src="js/cart_content.js"></script>
-<script src="js/render_single_card.js"></script>
 </body>
 </html>
