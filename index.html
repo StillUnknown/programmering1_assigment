@@ -18,14 +18,14 @@
         <button onclick="searchButton()">Search</button>
     </section>
 
-    <section class="header">
-        <img src="img/shoppingcart.PNG" alt="Shoppingcart image" class="logo" id="hoverDropdown">
-        <div class='dropdown'>
-            <button class='dropdown-button'
-                    onclick='openCart()'>Cart
+    <section>
+        <img src="img/shoppingcart.PNG" alt="cart" class="img">
+        <div class="dropdown">
+            <button class="dropdown-button" onclick="openCart()">Cart
             </button>
-            <div id='cart-dropdown' class='dropdown-content'>
-                <div id="cart-dropdown-container">
+            <div id="dropdown" class="dropdown-content">
+                <a href="#">Cart</a>
+                <div id="allAddedAlbums">
                 </div>
                 <div id="totalSumOfAddedAlbums">
                 </div>
@@ -33,9 +33,12 @@
                 </div>
                 <div id="totalShippingOfAddedAlbums">
                 </div>
-                <button onclick='closeCart()'>
-                    Close
-                </button>
+                <section>
+                    <button onclick="purchaseAlert()">Purchase</button>
+                    <button onclick="closeCart()">
+                        Close
+                    </button>
+                </section>
             </div>
         </div>
     </section>
@@ -63,9 +66,8 @@
     </footer>
 </main>
 
-<script src="js/data_and_render_single_cards.js"></script>
-<script src="js/albums_in_array.js"></script>
 <script src="js/cart_content.js"></script>
+<script src="js/data_and_render_single_cards.js"></script>
 <script src="js/script.js"></script>
 <script src="js/navbar.js"></script>
 <script src="js/footer.js"></script>
