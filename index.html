@@ -18,30 +18,30 @@
         <button onclick="searchButton()">Search</button>
     </section>
 
-    <section>
+    <div class=" header">
         <img src="img/shoppingcart.PNG" alt="cart" class="logo">
-        <div class="dropdown">
-            <button class="dropdown-button" onclick="openCart()">Cart
+        <section class="dropdown">
+            <button class="dropdown-button" onclick="openCart()">Open Cart
             </button>
-            <div id="dropdown" class="dropdown-content">
-                <a href="#">Cart</a>
-                <div id="allAddedAlbums">
-                </div>
-                <div id="totalSumOfAddedAlbums">
-                </div>
-                <div id="totalQuantityOfAddedAlbums">
-                </div>
-                <div id="totalShippingOfAddedAlbums">
-                </div>
+            <section id="dropdown" class="dropdown-content">
+                <p>Cart</p>
+                <section id="cards-in-cart">
+                </section>
+                <section id="total-sum-of-cart">
+                </section>
+                <section id="total-quantity-in-cart">
+                </section>
+                <section id="cost-of-shipping">
+                </section>
                 <section>
                     <button onclick="purchaseAlert()">Purchase</button>
                     <button onclick="closeCart()">
-                        Close
+                        Close Cart
                     </button>
                 </section>
-            </div>
-        </div>
-    </section>
+            </section>
+        </section>
+    </div>
 </header>
 
 <nav id="nav">
@@ -49,17 +49,17 @@
 
 <main>
     <div id="grid-container">
-        <div id="empty-div-left-side"></div>
-        <div id="div-middle-of-the-screen">
+        <section id="empty-div-left-side"></section>
+        <section id="div-middle-of-the-screen">
             <section>
                 <h1>Welcome to StillUknowns shop</h1>
                 <h3>Here you can find seven LEGENDARY (that's why they're so expensive) Hardstyle CD's and a special
                     one only for Lars</h3>
             </section>
             <hr>
-            <div id="album-grid-container">
-            </div>
-        </div>
+            <section id="album-card-container">
+            </section>
+        </section>
         <div id="empty-div-right-side"></div>
     </div>
     <footer id="footer">

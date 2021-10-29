@@ -27,6 +27,7 @@ header {
 
 .logo {
     height: 70px;
+    margin: 1em;
 }
 
 #navbar {
@@ -66,20 +67,15 @@ li {
     border: 1px solid black;
 }
 
-#album-grid-container {
+#album-card-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(8, 1fr);
     padding: 2em;
     grid-gap: 2em;
 }
 
-#album-grid-container > section {
-    padding-top: 2em;
-}
-
 button {
     width: 5em;
-    max-height: 46px;
 }
 
 button:hover {
@@ -108,14 +104,4 @@ footer {
 
 #empty-div-right-side {
     background-color: white;
-}
-
-.price-of-shipping {
-    background-color: #2196F3;
-    padding: 0.5em;
-    border: 1px solid black;
-}
-
-.show-hardstyle-seven-in-shoppingcart {
-    display: none;
 }

@@ -60,7 +60,7 @@ let allAlbums = [
 
 function renderSingleAlbum(album) {
     return `
-    <article id=albumToBy>
+    <article id=album-cards>
         <img src=${album.image} alt=${album} class="img" id=${album}>
             <p>${album.name}</p>
             <p>${album.price} SEK</p>
@@ -73,4 +73,4 @@ let renderCardsToSite = [];
 for (const album of allAlbums){
     renderCardsToSite.push(renderSingleAlbum(album))
 }
-document.getElementById('album-grid-container').innerHTML = renderCardsToSite
+document.getElementById('album-card-container').innerHTML = renderCardsToSite

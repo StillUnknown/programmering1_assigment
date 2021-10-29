@@ -1,4 +1,4 @@
-//Struktur på varukorgen
+// Structure in cart
 class AlbumToCart {
     constructor(image, name, price, id) {
         this.image = image
@@ -10,10 +10,9 @@ class AlbumToCart {
     }
 }
 
-//Tom varukorg, antal i varukorg, summan i varukorg
-let myCart = []
-let totalSumCart = 0
-let quantityInCart = 0
+let renderCardsToCart = [] // Empty cart
+let totalSumOfCart = 0 // Total sum of cart
+let quantityInCart = 0 // Quantity in cart
 
 //Lägger till/uppdaterar album i  varukorgen
 function pushCardToCart(image, name, price, id) {
@@ -22,7 +21,7 @@ function pushCardToCart(image, name, price, id) {
 //Lägger till om detta album inte finns sen innan.
     if (exist === false) {
         let newAlbum = new AlbumToCart(image, name, price, id)
-        myCart.push(newAlbum)
+        renderCardsToCart.push(newAlbum)
     }
     renderCart()
 }
@@ -30,43 +29,43 @@ function pushCardToCart(image, name, price, id) {
 // lägger till album i html i korgen
 function renderCart() {
     let renderCartAlbums = [];
-    for (const item of myCart) {
-        renderCartAlbums.push(showAlbum(item))
+    for (const album of renderCardsToCart) {
+        renderCartAlbums.push(renderSingleAlbumToCart(album))
     }
 
-    document.getElementById('allAddedAlbums').innerHTML = renderCartAlbums
+    document.getElementById('cards-in-cart').innerHTML = renderCartAlbums
 
     calculateTotalSumInCart()
     calculateShipping()
     calculateTotalQuantityInCart()
 }
 
-//visar album i varukorg
-function showAlbum(album) {
+// Render album in cart
+function renderSingleAlbumToCart(album) {
     return `
-    <article id="albumToBy${album.id}">
+    <article id="album-cards${album.id}">
             <img src=${album.image} alt=${album.name} class="img-in-cart" id=${album.image}>
             <p>${album.name}</p>
             <p>Price: ${album.price} SEK</p>
-            <input id="quantity${album.id}" type="number" onclick="addMore('${album.id}')" value="${album.quantity}"/>
+            <input id="album-quantity${album.id}" type="number" onclick="addOrSubtractViaInputButtons('${album.id}')" value="${album.quantity}"/>
             <p id="totalSum${album.id}">Total: ${album.totalSum} SEK</p>
     </article>
  `;
 }
 
-// Visar total summan
+// Total sum of cart
 function showTotalSum(totalSum) {
     return `
-    <article id="totalSumOfAddedAlbums">
+    <article id="total-sum-of-cart">
             <p>Totalprice: ${totalSum} SEK</p>
     </article> 
  `;
 }
 
-// Total antalet i kundkorgen
+// Total quantity in cart
 function showTotalQuantity(quantity) {
     return `
-    <article id="totalQuantityOfAddedAlbums">
+    <article id="total-quantity-in-cart">
             <p>Quantity: ${quantity}</p>
     </article> 
  `;
@@ -75,7 +74,7 @@ function showTotalQuantity(quantity) {
 // Skriver ut frakt texten
 function showShippingCost(shippingText) {
     return `
-    <article id="totalShippingCostOfAddedAlbums">
+    <article id="cost-of-shipping">
             <p>${shippingText}</p>
     </article> 
  `;
@@ -96,8 +95,8 @@ function closeCart() {
 // Om album redan finns i varukorgen så lägger den inte till albumet igen utan uppdaterar quantity med 1
 function updateAlbumInCart(id) {
     let existInCart = false
-    for (const album of myCart) {
-        if (album.id == id) {
+    for (const album of renderCardsToCart) {
+        if (album.id === id) {
             album.quantity += 1
             album.totalSum = album.price * album.quantity;
             existInCart = true;
@@ -109,8 +108,8 @@ function updateAlbumInCart(id) {
 //Uppdaterar totalsumman i varukorgen
 function updateAlbumInCartWithNewValue(id, newValue) {
     let totalSumOfAlbum = 0
-    for (const album of myCart) {
-        if (album.id == id) {
+    for (const album of renderCardsToCart) {
+        if (album.id === id) {
             album.quantity = newValue
             album.totalSum = album.price * album.quantity;
             totalSumOfAlbum =  album.totalSum;
@@ -121,65 +120,65 @@ function updateAlbumInCartWithNewValue(id, newValue) {
 
 //Funktionen räknar ut totalsumman i varukorgen
 function calculateTotalSumInCart() {
-    totalSumCart = 0
+    totalSumOfCart = 0
 
-    for (const item of myCart) {
-        totalSumCart += parseInt(item.totalSum)
+    for (const album of renderCardsToCart) {
+        totalSumOfCart += parseInt(album.totalSum)
     }
-    document.getElementById('totalSumOfAddedAlbums').innerHTML = showTotalSum(totalSumCart)
+    document.getElementById('total-sum-of-cart').innerHTML = showTotalSum(totalSumOfCart)
 }
 
-//Skriver ut fraktkostnad och vid <= fraktkostnad ändrar till fri frakt
+// Shippingcost with text for smaller amount and equal or larger then shippingcost
 function calculateShipping() {
-    let costToFreeFreight = 650 - totalSumCart;
-    let costTest = ""
+    let costToFreeFreight = 650 - totalSumOfCart;
+    let costText = ""
 
     if (costToFreeFreight <= 0) {
-        costTest = "You now have free shipping"
+        costText = "You now have free shipping"
     } else {
-        costTest = "You need " + costToFreeFreight +  " for free shipping"
+        costText = "You need " + costToFreeFreight +  " SEK for free shipping"
     }
 
-    document.getElementById('totalShippingOfAddedAlbums').innerHTML = showShippingCost(costTest)
+    document.getElementById('cost-of-shipping').innerHTML = showShippingCost(costText)
 }
 
-// Räknar ut antal album i varukorgen.
+// Calculates the quantity of cart
 function calculateTotalQuantityInCart() {
     quantityInCart = 0
 
-    for (const album of myCart) {
+    for (const album of renderCardsToCart) {
         quantityInCart += parseInt(album.quantity)
     }
 
-    document.getElementById('totalQuantityOfAddedAlbums').innerHTML = showTotalQuantity(quantityInCart)
+    document.getElementById('total-quantity-in-cart').innerHTML = showTotalQuantity(quantityInCart)
 }
 
-// adderar eller subtraherar antal och räknar ut slutsumma
-function addMore(id) {
-    // Detta får ut värdet på input fältet för det album man har ökat eller minskar på i varukorgen.
-    let newValue = document.getElementById("quantity" + id).value;
+// Add or subtract via the inputbuttons
+function addOrSubtractViaInputButtons(id) {
+    // Shows the quantity
+    let newValue = document.getElementById("album-quantity" + id).value;
 
-    //Tar bort albumet från varukorgen om antalet minskas till 0
+    // Deletes an album if input is reduced to zero
     if (parseInt(newValue) <= 0) {
-        for (let i = 0; i < myCart.length; i++) {
-            if (myCart[i].id == id) {
-                myCart.splice(i, 1);
-                document.getElementById("albumToBy" + id).remove()
+        for (let i = 0; i < renderCardsToCart.length; i++) {
+            if (renderCardsToCart[i].id === id) {
+                renderCardsToCart.splice(i, 1);
+                document.getElementById("album-cards" + id).remove()
             }
         }
     }
-    // Annars addera eller subtraherar med det antal som fanns i input fältet.
+    // Total sum of individual albums in cart
     else {
         let totalSum = updateAlbumInCartWithNewValue(id, newValue)
         if(!!totalSum) {
-            document.getElementById("totalSum" + id).innerText = "Total: " + totalSum + ":-";
+            document.getElementById("totalSum" + id).innerText = "Total: " + totalSum + "SEK";
         }
     }
-// Görs för att kunna räkna om värderna för varukorgen. Vi har kallat på funktionerna.
+// Görs för att kunna räkna om värdena för varukorgen. Vi har kallat på funktionerna.
     calculateTotalSumInCart()
     calculateShipping()
     calculateTotalQuantityInCart()
 }
 
-// Kallas på globalt för att kunna skapa varukorgen när man öppnar sidan första gången.
+// Is global because we want the cart to always be shown when we click cartbutton
 renderCart()
