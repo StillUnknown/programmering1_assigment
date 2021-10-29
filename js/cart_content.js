@@ -110,7 +110,7 @@ function updateAlbumInCart(id) {
 function updateAlbumInCartWithNewValue(id, newValue) {
     let totalSumOfAlbum = 0
     for (const album of myCart) {
-        if (item.id == id) {
+        if (album.id == id) {
             album.quantity = newValue
             album.totalSum = album.price * album.quantity;
             totalSumOfAlbum =  album.totalSum;
