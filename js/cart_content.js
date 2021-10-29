@@ -131,7 +131,7 @@ function calculateTotalSumInCart() {
 
 //Skriver ut fraktkostnad och vid <= fraktkostnad ändrar till fri frakt
 function calculateShipping() {
-    let costToFreeFreight = 500 - totalSumCart;
+    let costToFreeFreight = 650 - totalSumCart;
     let costTest = ""
 
     if (costToFreeFreight <= 0) {
