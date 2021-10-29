@@ -1,10 +1,10 @@
-//album till varukorgen
-class AlbumToBye {
-    constructor(id, name, image, price) {
-        this.id = id
-        this.name = name
+//Struktur på varukorgen
+class AlbumToCart {
+    constructor(image, name, price, id) {
         this.image = image
+        this.name = name
         this.price = price
+        this.id = id
         this.quantity = 1
         this.totalSum = price
     }
@@ -16,12 +16,12 @@ let totalSumCart = 0
 let quantityInCart = 0
 
 //Lägger till/uppdaterar album i  varukorgen
-function pushCardToCart(id, name, image, price) {
+function pushCardToCart(image, name, price, id) {
     let exist = updateAlbumInCart(id);
 
 //Lägger till om detta album inte finns sen innan.
     if (exist === false) {
-        let newAlbum = new AlbumToBye(id, name, image, price)
+        let newAlbum = new AlbumToCart(image, name, price, id)
         myCart.push(newAlbum)
     }
     renderCart()
@@ -45,12 +45,12 @@ function renderCart() {
 function showAlbum(album) {
     return `
     <article id="albumToBy${album.id}">
-            <img src=${album.image} alt=${album.name} class="imgAlbum" id=${album.image}>
+            <img src=${album.image} alt=${album.name} class="img-in-cart" id=${album.image}>
             <p>${album.name}</p>
             <p>Price: ${album.price} SEK</p>
-            <input id="quantity${album.id}" type="number" onclick="addMore('${album.id}')" value="${album.quantity}" />
+            <input id="quantity${album.id}" type="number" onclick="addMore('${album.id}')" value="${album.quantity}"/>
             <p id="totalSum${album.id}">Total: ${album.totalSum} SEK</p>
-    </article> 
+    </article>
  `;
 }
 
@@ -58,7 +58,7 @@ function showAlbum(album) {
 function showTotalSum(totalSum) {
     return `
     <article id="totalSumOfAddedAlbums">
-            <p>Totalpris: ${totalSum}:-</p>
+            <p>Totalprice: ${totalSum} SEK</p>
     </article> 
  `;
 }
@@ -81,20 +81,19 @@ function showShippingCost(shippingText) {
  `;
 }
 
-//visar varukorg
+//Öppnar varukorg vid klick
 function openCart() {
     document.getElementById('dropdown')
         .classList.toggle('show')
 }
 
-//stänger korgen
+//Stänger varukorgen vid klick
 function closeCart() {
     document.getElementById('dropdown')
         .classList.toggle('show', false)
 }
 
-// Om album finns i varukorgen så lägger den till ett till album av samma sort, uppdaterar antal med 1, och retunerar om album fanns eller ej i varukorgen.
-// Finns inte denna funktion så lägger den till två likadana album under varandra istället för att uppdatera 1.
+// Om album redan finns i varukorgen så lägger den inte till albumet igen utan uppdaterar quantity med 1
 function updateAlbumInCart(id) {
     let existInCart = false
     for (const album of myCart) {
@@ -107,7 +106,7 @@ function updateAlbumInCart(id) {
     return existInCart
 }
 
-// Samma som ovan, men uppdaterar inte med 1 utan med ett värde man skickar in och retunerar totalsumman för albumet.(Den syns i input)
+//Uppdaterar totalsumman i varukorgen
 function updateAlbumInCartWithNewValue(id, newValue) {
     let totalSumOfAlbum = 0
     for (const album of myCart) {
@@ -120,7 +119,7 @@ function updateAlbumInCartWithNewValue(id, newValue) {
     return totalSumOfAlbum
 }
 
-//Räknar ut total summan för alla album i varukorgen.
+//Funktionen räknar ut totalsumman i varukorgen
 function calculateTotalSumInCart() {
     totalSumCart = 0
 
@@ -130,15 +129,15 @@ function calculateTotalSumInCart() {
     document.getElementById('totalSumOfAddedAlbums').innerHTML = showTotalSum(totalSumCart)
 }
 
-// Skriver ut kostnads texten och räknar ut om det är fri frak.
+//Skriver ut fraktkostnad och vid <= fraktkostnad ändrar till fri frakt
 function calculateShipping() {
-    let costToFreeFreight = 259 - totalSumCart;
+    let costToFreeFreight = 500 - totalSumCart;
     let costTest = ""
 
     if (costToFreeFreight <= 0) {
         costTest = "You now have free shipping"
     } else {
-        costTest = "Behöver till " + costToFreeFreight +  " fri frakt"
+        costTest = "You need " + costToFreeFreight +  " for free shipping"
     }
 
     document.getElementById('totalShippingOfAddedAlbums').innerHTML = showShippingCost(costTest)
@@ -160,7 +159,7 @@ function addMore(id) {
     // Detta får ut värdet på input fältet för det album man har ökat eller minskar på i varukorgen.
     let newValue = document.getElementById("quantity" + id).value;
 
-    //Är antal på album mindre än 0 ta bort album från varukorgslistan. Det är så att den inte kan gå minus
+    //Tar bort albumet från varukorgen om antalet minskas till 0
     if (parseInt(newValue) <= 0) {
         for (let i = 0; i < myCart.length; i++) {
             if (myCart[i].id == id) {

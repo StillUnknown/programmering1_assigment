@@ -3,5 +3,5 @@ function purchaseAlert() {
 }
 
 function searchButton() {
-    alert('gjlg')
+    alert('Good try')
 }
