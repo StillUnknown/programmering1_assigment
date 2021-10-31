@@ -19,8 +19,8 @@
     </section>
 
     <div class=" header">
-        <img src="img/shoppingcart.PNG" alt="cart" class="logo">
         <section class="dropdown">
+            <img src="img/shoppingcart.PNG" alt="cart" class="logo" onclick="openCart()">
             <button class="dropdown-button" onclick="openCart()">Open Cart
             </button>
             <section id="dropdown" class="dropdown-content">
@@ -34,10 +34,8 @@
                 <section id="cost-of-shipping">
                 </section>
                 <section>
+                    <button onclick="closeCart()">Close</button>
                     <button onclick="purchaseAlert()">Checkout</button>
-                    <button onclick="closeCart()">
-                        Close Cart
-                    </button>
                 </section>
             </section>
         </section>
@@ -53,8 +51,7 @@
         <section id="div-middle-of-the-screen">
             <section>
                 <h1>Welcome to StillUknowns shop</h1>
-                <h3>Here you can find seven LEGENDARY (that's why they're so expensive) Hardstyle CD's and a special
-                    one only for Lars</h3>
+                <h3>Here you can find seven LEGENDARY (that's why they're so expensive) Hardstyle CD's</h3>
             </section>
             <hr>
             <section id="album-card-container">
