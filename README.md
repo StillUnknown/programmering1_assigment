@@ -41,8 +41,10 @@ album, navbar och footer och la de i varsin JS-fil och visst, HTML-filen blir be
 
 Jag valde medvetet att hålla denna ganska simpel nu när stylingen inte var ett krav. Sen efter att ha sett Carins så
 blir man såklart avundsjuk och vill göra mer med den men allt funkar som det ska så jag vill inte lägga ner mer tid på
-den.
+den.  
+  
 <hr>
+
 ### Beskriv lite olika lösningar du gjort
 
 Som jag skrev ovan, jag började med att lägga allt jag kunde i HTML-filen men efter Lars tips flyttade jag mina album,
