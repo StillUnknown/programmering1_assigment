@@ -14,11 +14,11 @@ let renderCardsToCart = [] // Empty cart
 let totalSumOfCart = 0 // Total sum of cart
 let quantityInCart = 0 // Quantity in cart
 
-//Lägger till/uppdaterar album i  varukorgen
+//Updates albums quantity in cart
 function pushCardToCart(image, name, price, id) {
     let exist = updateAlbumInCart(id);
 
-//Lägger till om detta album inte finns sen innan.
+// Adds the album to cart if it didn't already exist
     if (exist === false) {
         let newAlbum = new AlbumToCart(image, name, price, id)
         renderCardsToCart.push(newAlbum)
@@ -26,7 +26,7 @@ function pushCardToCart(image, name, price, id) {
     renderCart()
 }
 
-// lägger till album i html i korgen
+// Render albums from htmlpage via buttonloop with info
 function renderCart() {
     let renderCartAlbums = [];
     for (const album of renderCardsToCart) {
@@ -40,7 +40,7 @@ function renderCart() {
     calculateTotalQuantityInCart()
 }
 
-// Render album in cart
+// Render album and it's structure in cart
 function renderSingleAlbumToCart(album) {
     return `
     <article id="album-cards${album.id}">
@@ -53,7 +53,7 @@ function renderSingleAlbumToCart(album) {
  `;
 }
 
-// Total sum of cart
+// Totalsum of cart
 function showTotalSum(totalSum) {
     return `
     <article id="total-sum-of-cart">
@@ -71,7 +71,7 @@ function showTotalQuantity(quantity) {
  `;
 }
 
-// Skriver ut frakt texten
+// Adds the shippingtext to cart
 function showShippingCost(shippingText) {
     return `
     <article id="cost-of-shipping">
@@ -80,19 +80,19 @@ function showShippingCost(shippingText) {
  `;
 }
 
-//Öppnar varukorg vid klick
+// Opens cart via onClick
 function openCart() {
     document.getElementById('dropdown')
         .classList.toggle('show')
 }
 
-//Stänger varukorgen vid klick
+// Closes cart via onClick
 function closeCart() {
     document.getElementById('dropdown')
         .classList.toggle('show', false)
 }
 
-// Om album redan finns i varukorgen så lägger den inte till albumet igen utan uppdaterar quantity med 1
+// If album already exist in cart, update quantity
 function updateAlbumInCart(id) {
     let existInCart = false
     for (const album of renderCardsToCart) {
@@ -105,7 +105,7 @@ function updateAlbumInCart(id) {
     return existInCart
 }
 
-//Uppdaterar totalsumman i varukorgen
+// Updates the totalsum of cart
 function updateAlbumInCartWithNewValue(id, newValue) {
     let totalSumOfAlbum = 0
     for (const album of renderCardsToCart) {
@@ -118,7 +118,7 @@ function updateAlbumInCartWithNewValue(id, newValue) {
     return totalSumOfAlbum
 }
 
-//Funktionen räknar ut totalsumman i varukorgen
+// Totalsum of the cart
 function calculateTotalSumInCart() {
     totalSumOfCart = 0
 
@@ -174,7 +174,7 @@ function addOrSubtractViaInputButtons(id) {
             document.getElementById("totalSum" + id).innerText = "Total: " + totalSum + "SEK";
         }
     }
-// Görs för att kunna räkna om värdena för varukorgen. Vi har kallat på funktionerna.
+// Calculates the value of cart.
     calculateTotalSumInCart()
     calculateShipping()
     calculateTotalQuantityInCart()
